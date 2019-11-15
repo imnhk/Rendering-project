@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: body
   m_Shader: {fileID: 4800000, guid: 96d05de60c5f7474491f9f94568cf623, type: 3}
-  m_ShaderKeywords: RENDER_TOON TOON TOON_ON ToonRender _ISTOON_ON _TOON_OFF
+  m_ShaderKeywords: RENDER_TOON TOON ToonRender _ISTOON_ON _TOON_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -48,7 +48,7 @@ Material:
     - _FalloffPower: 0.3
     - _IsToon: 1
     - _SpecularPower: 20
-    - _Toon: 0
+    - _Toon: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ShadowColor: {r: 0.8, g: 0.8, b: 1, a: 1}

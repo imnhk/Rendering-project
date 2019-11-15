@@ -162,7 +162,7 @@ float4 frag( v2f i ) : COLOR
 	float3_t specularColor = saturate( lighting.z ) * reflectionMaskColor.rgb * diffSamplerColor.rgb;
 	combinedColor += specularColor;
 	
-	float4_t stairLight = clamp(round(lighting.z * 15),0.35,0.75);
+	float4_t stairLight = clamp(round(lighting.z * 255),0.25,0.75);
 	
 	// Reflection
 	float3_t reflectVector = reflect( -i.eyeDir.xyz, normalVec ).xzy;
@@ -188,7 +188,7 @@ float4 frag( v2f i ) : COLOR
 	float3_t lightColor = diffSamplerColor.rgb; // * 2.0;
 	combinedColor += falloffU * lightColor;
 
-    float4_t highLight = floor(float4_t(falloffU * lightColor,1)*2)/2;
+    float4_t highLight = float4_t(falloffU * lightColor,1);
 
-    return (textureColor + textureColor * stairLight) * (textureColor.z + stairLight.z) + highLight;
+    return (textureColor + textureColor * stairLight) * (textureColor.z + stairLight.z) + 3 * highLight;
 }
