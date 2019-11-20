@@ -130,14 +130,8 @@ float4 frag( v2f i ) : COLOR
 {
 	float4_t diffSamplerColor = tex2D( _MainTex, i.uv.xy );
 
-    float4_t textureColor = (diffSamplerColor + diffSamplerColor * (1 - diffSamplerColor.z) * diffSamplerColor.z * 1.5)/2.5;
+    float4_t textureColor = (diffSamplerColor + diffSamplerColor / diffSamplerColor.r  * (1-diffSamplerColor.z))/2;
     
-    // diffSamplerColor = texture * i.z + texture + (1 - i.z)
-
-    //return ceil(diffSamplerColor * 4)/4;
-    //diffSamplerColor = floor(diffSamplerColor * 6)/6;
-    //return float4(diffSamplerColor.rgb,1);
-
 #ifdef ENABLE_NORMAL_MAP
 	float3_t normalVec = GetNormalFromMap( i );
 #else
@@ -162,8 +156,8 @@ float4 frag( v2f i ) : COLOR
 	float3_t specularColor = saturate( lighting.z ) * reflectionMaskColor.rgb * diffSamplerColor.rgb;
 	combinedColor += specularColor;
 	
-	float4_t stairLight = clamp(round(lighting.z * 255),0.25,0.75);
-	
+	float4_t stairLight = clamp(round(lighting.z * 255),0.4,1);
+
 	// Reflection
 	float3_t reflectVector = reflect( -i.eyeDir.xyz, normalVec ).xzy;
 	float2_t sphereMapCoords = 0.5 * ( float2_t( 1.0, 1.0 ) + reflectVector.xy );
@@ -185,10 +179,11 @@ float4 frag( v2f i ) : COLOR
 	float_t rimlightDot = saturate( 0.5 * ( dot( normalVec, i.lightDir ) + 1.0 ) );
 	falloffU = saturate( rimlightDot * falloffU );
 	falloffU = tex2D( _RimLightSampler, float2( falloffU, 0.25f ) ).r;
-	float3_t lightColor = diffSamplerColor.rgb; // * 2.0;
+	float3_t lightColor = textureColor.rgb * falloffU; // * 2.0;
 	combinedColor += falloffU * lightColor;
 
-    float4_t highLight = float4_t(falloffU * lightColor,1);
+    float4_t highLight = clamp(floor(float4_t(lightColor,1).z * 4),0,1);
 
-    return (textureColor + textureColor * stairLight) * (textureColor.z + stairLight.z) + 3 * highLight;
+    return textureColor * stairLight + highLight;
+    //return (textureColor + textureColor * stairLight) * (textureColor.z + stairLight.z) + 3 * highLight;
 }

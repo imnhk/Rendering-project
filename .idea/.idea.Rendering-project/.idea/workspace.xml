@@ -15,6 +15,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Shader/Unitychan_chara_fuku_ds.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Shader/Unitychan_chara_hada.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Shader/Unitychan_chara_hair_ds.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Shader/Unitychan_chara_hada_blend.shader" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -25,7 +26,10 @@
         <option value="$PROJECT_DIR$/Assets/ShaderGUIScript.cs" />
         <option value="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Shader/Unitychan_chara_fuku_ds.shader" />
         <option value="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Shader/Unitychan_chara_hair_ds.shader" />
+        <option value="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Shader/Unitychan_chara_hada_blend.shader" />
+        <option value="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Shader/Unitychan_chara_hada.shader" />
         <option value="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Shader/ToonCharMain.cg" />
+        <option value="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Shader/ToonSkin.cg" />
       </list>
     </option>
   </component>
@@ -77,6 +81,9 @@
       <workItem from="1573726005072" duration="3668000" />
       <workItem from="1573804890047" duration="9299000" />
       <workItem from="1573814474849" duration="361000" />
+      <workItem from="1574067947188" duration="2477000" />
+      <workItem from="1574250942619" duration="3582000" />
+      <workItem from="1574254760925" duration="533000" />
     </task>
     <servers />
   </component>
