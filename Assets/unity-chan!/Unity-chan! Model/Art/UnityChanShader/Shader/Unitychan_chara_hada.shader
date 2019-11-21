@@ -3,6 +3,7 @@ Shader "UnityChan/Skin"
 	Properties
 	{
 	    [KeywordEnum(Off,On)] _Toon ("Toon Mode",float) = 0
+	    _MousePosition ("MousePosition",vector) =(0,0,0,0)
 		_Color ("Main Color", Color) = (1, 1, 1, 1)
 		_ShadowColor ("Shadow Color", Color) = (0.8, 0.8, 1, 1)
 		_EdgeThickness ("Outline Thickness", Float) = 1

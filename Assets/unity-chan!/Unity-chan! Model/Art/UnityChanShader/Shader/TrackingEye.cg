@@ -12,6 +12,7 @@ float4 _Color;
 float4 _ShadowColor;
 float4 _LightColor0;
 float4 _MainTex_ST;
+float4 _MousePosition;
 
 // Textures
 sampler2D _MainTex;
@@ -78,31 +79,26 @@ v2f vert( appdata_base v )
 // Fragment shader
 float4 frag( v2f i ) : COLOR
 {
-	float4_t diffSamplerColor = tex2D( _MainTex, i.uv );
+	float4_t diffSamplerColor = tex2D( _MainTex, i.uv - _MousePosition.xy);
 
-    float4_t textureColor = diffSamplerColor + clamp(diffSamplerColor / diffSamplerColor.z * (1-diffSamplerColor.z),0,1);
-   
-    textureColor = clamp(textureColor/1.35,0,1);
-    
-	// Falloff. Convert the angle between the normal and the camera direction into a lookup for the gradient
+    // Falloff. Convert the angle between the normal and the camera direction into a lookup for the gradient
 	float_t normalDotEye = dot( i.normal, i.eyeDir );
 	float_t falloffU = clamp( 1 - abs( normalDotEye ), 0.02, 0.98 );
 	float4_t falloffSamplerColor = FALLOFF_POWER * tex2D( _FalloffSampler, float2( falloffU, 0.25f ) );
 	float3_t combinedColor = lerp( diffSamplerColor.rgb, falloffSamplerColor.rgb * diffSamplerColor.rgb, falloffSamplerColor.a );
 
-    
 	// Rimlight
 	float_t rimlightDot = saturate( 0.5 * ( dot( i.normal, i.lightDir ) + 1.0 ) );
 	falloffU = saturate( rimlightDot * falloffU );
 	//falloffU = saturate( ( rimlightDot * falloffU - 0.5 ) * 32.0 );
 	falloffU = tex2D( _RimLightSampler, float2( falloffU, 0.25f ) ).r;
-	float3_t lightColor = diffSamplerColor.rgb * falloffU; // * 2.0;
+	float3_t lightColor = diffSamplerColor.rgb * 0.5; // * 2.0;
 	combinedColor += falloffU * lightColor;
-    
-    float4_t stairLight = clamp(round(rimlightDot * 2)/2,0.5,1);
+
+    float4_t stairLight = clamp(round(rimlightDot * 2)/2,0.75,1);
     float4_t highLight = clamp(floor(float4_t(lightColor,1).z * 4),0,1);
         
-    return textureColor * stairLight + highLight;
+    return diffSamplerColor * stairLight + highLight;
 
 #ifdef ENABLE_CAST_SHADOWS
 	// Cast shadows
