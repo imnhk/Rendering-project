@@ -238,7 +238,7 @@ MonoBehaviour:
   materials:
   - {fileID: 2100000, guid: 4987862c1c195e74c86994ba4bcbd812, type: 2}
   - {fileID: 2100000, guid: a87def7cf3654cc43add52e645fee2ce, type: 2}
-  range: 0.4
+  range: 0.15
 --- !u!114 &180302173
 MonoBehaviour:
   m_ObjectHideFlags: 0
