@@ -44,9 +44,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _EdgeThickness: 0.5
+    - _EdgeThickness: 0
     - _FalloffPower: 0.5
+    - _HighLightIntensity: 2.86
+    - _RimLightIntensity: 0.597
     - _SpecularPower: 20
+    - _TextureColorModifier: 1.471
     - _Toon: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

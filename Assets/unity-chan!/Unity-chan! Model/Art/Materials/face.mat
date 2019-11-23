@@ -35,10 +35,10 @@ Material:
     - _EdgeThickness: 0.5
     - _FalloffPower: 1
     - _HighLightIntensity: 4
-    - _RimLightIntensity: 0.618
+    - _RimLightIntensity: 0.539
     - _RimLightMultiplier: 1
-    - _ShadingSteps: 3
-    - _TextureColorModifier: 1.335
+    - _ShadingSteps: 2
+    - _TextureColorModifier: 1.329
     - _Toon: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

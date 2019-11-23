@@ -1,9 +1,5 @@
-// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
-// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-
 // Character shader
-// Includes falloff shadow and highlight, specular, reflection, and normal mapping
+// Includes falloff shadow and specular, reflection, and normal mapping
 
 #define ENABLE_CAST_SHADOWS
 
@@ -13,6 +9,9 @@ float4 _ShadowColor;
 float4 _LightColor0;
 float _SpecularPower;
 float4 _MainTex_ST;
+
+float _TextureColorModifier;
+float _RimLightIntensity;
 
 // Textures
 sampler2D _MainTex;
@@ -132,7 +131,7 @@ float4 frag( v2f i ) : COLOR
 
     float4_t textureColor = diffSamplerColor + clamp(diffSamplerColor / diffSamplerColor.r  * (1-diffSamplerColor.z),0,1);
     
-    textureColor = clamp(textureColor/1.5,0,1);
+    textureColor = clamp(textureColor/ _TextureColorModifier, 0, 1);
     
 #ifdef ENABLE_NORMAL_MAP
 	float3_t normalVec = GetNormalFromMap( i );
@@ -176,16 +175,14 @@ float4 frag( v2f i ) : COLOR
 #endif
 
 	// Rimlight
-	float_t rimlightDot = saturate( 0.5 * ( dot( normalVec, i.lightDir ) + 1.0 ) );
+	float_t rimlightDot = saturate( _RimLightIntensity * ( dot( normalVec, i.lightDir ) + 1.0 ) );
 	falloffU = saturate( rimlightDot * falloffU );
 	falloffU = tex2D( _RimLightSampler, float2( falloffU, 0.25f ) ).r;
-	float3_t lightColor = textureColor.rgb * falloffU; // * 2.0;
+	float3_t lightColor = textureColor.rgb * falloffU;
 	combinedColor += falloffU * lightColor;
 
-    float4_t stairLight = clamp(round(rimlightDot * 2)/2,0.5,1);
-    float4_t highLight = clamp(floor(float4_t(lightColor,1).z * 4),0,1);
+    float4_t stairLight = clamp(round(rimlightDot * 2)/2, 0.5, 1);
+    //float4_t highLight = clamp(floor(float4_t(lightColor,1).z * _HighLightIntensity), 0, 1);
 
-    return _Color * textureColor * stairLight; + highLight;
-    //return textureColor * 0.75 + textureColor * stairLight;// + highLight;
-    //return (textureColor + textureColor * stairLight) * (textureColor.z + stairLight.z) + 3 * highLight;
+    return _Color * textureColor * stairLight;
 }

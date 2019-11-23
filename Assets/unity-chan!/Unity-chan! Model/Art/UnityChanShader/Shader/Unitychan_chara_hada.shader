@@ -5,7 +5,7 @@ Shader "UnityChan/Skin"
 	    [KeywordEnum(Off,On)] _Toon ("Toon Render Mode", float) = 0
 		_MainTex ("Diffuse", 2D) = "white" {}
 		_RimLightSampler ("RimLight Control", 2D) = "white" {}
-		_RimLightIntensity ("RimLight Intensity", Range(0.3, 1)) = 0.5
+		_RimLightIntensity ("Light Intensity", Range(0.3, 1)) = 0.5
 		_HighLightIntensity ("HighLight Intensity", Range(1, 4)) = 2
 		_TextureColorModifier("Skin Tone", Range(1, 2)) = 1.35
 
