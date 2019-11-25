@@ -48,13 +48,13 @@ Material:
     - _EdgeThickness: 0
     - _EnableNormalMap: 0
     - _FalloffPower: 0.3
-    - _HighLightIntensity: 2.46
+    - _HighLightIntensity: 1.71
     - _IsToon: 0
     - _RenderMode: 0
-    - _RimLightIntensity: 0.824
+    - _RimLightIntensity: 0.664
     - _SpecularPower: 20
-    - _TextureColorModifier: 1.984
-    - _Toon: 1
+    - _TextureColorModifier: 3
+    - _Toon: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ShadowColor: {r: 0.8, g: 0.8, b: 1, a: 1}

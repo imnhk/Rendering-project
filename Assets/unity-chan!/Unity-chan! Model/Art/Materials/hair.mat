@@ -46,11 +46,12 @@ Material:
     m_Floats:
     - _EdgeThickness: 0
     - _FalloffPower: 0.5
-    - _HighLightIntensity: 2.86
-    - _RimLightIntensity: 0.597
+    - _HighIntensity: 1.32
+    - _HighLightIntensity: 2.11
+    - _RimLightIntensity: 0.606
     - _SpecularPower: 20
-    - _TextureColorModifier: 1.471
-    - _Toon: 1
+    - _TextureColorModifier: 1.462
+    - _Toon: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ShadowColor: {r: 0.8, g: 0.8, b: 1, a: 1}
