@@ -3,15 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="cc154971-1769-4b61-ab92-1773de44451e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Rendering-project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rendering-project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MouseTrackingEye.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MouseTrackingEye.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/Materials/body.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/Materials/body.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/Materials/hair.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/Materials/hair.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Materials/body.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Materials/body.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/Materials/face.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/Materials/face.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/Materials/skin1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/Materials/skin1.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Shader/ToonCharMain.cg" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Shader/ToonCharMain.cg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Shader/TrackingEye.cg" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Shader/TrackingEye.cg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Shader/Unitychan_chara_eye_blend.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Shader/Unitychan_chara_eye_blend.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Scenes/ActionCheck.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Scenes/ActionCheck.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Shader/ToonSkin.cg" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Shader/ToonSkin.cg" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,14 +37,14 @@
         <option value="$PROJECT_DIR$/Assets/ShaderGUIScript.cs" />
         <option value="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Shader/Unitychan_chara_hada_blend.shader" />
         <option value="$PROJECT_DIR$/Assets/rotateCamera.cs" />
-        <option value="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Shader/ToonSkin.cg" />
         <option value="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Shader/Unitychan_chara_hada.shader" />
         <option value="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Shader/Unitychan_chara_fuku_ds.shader" />
         <option value="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Shader/Unitychan_chara_hair_ds.shader" />
         <option value="$PROJECT_DIR$/Assets/MouseTrackingEye.cs" />
-        <option value="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Shader/ToonCharMain.cg" />
         <option value="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Shader/TrackingEye.cg" />
         <option value="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Shader/Unitychan_chara_eye_blend.shader" />
+        <option value="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Shader/ToonSkin.cg" />
+        <option value="$PROJECT_DIR$/Assets/unity-chan!/Unity-chan! Model/Art/UnityChanShader/Shader/ToonCharMain.cg" />
       </list>
     </option>
   </component>
@@ -107,7 +103,7 @@
       <workItem from="1574300872698" duration="8674000" />
       <workItem from="1574312233804" duration="624000" />
       <workItem from="1574645837981" duration="1939000" />
-      <workItem from="1574656702428" duration="26429000" />
+      <workItem from="1574656702428" duration="28141000" />
     </task>
     <servers />
   </component>

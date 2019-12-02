@@ -48,7 +48,7 @@ Material:
     - _EdgeThickness: 0
     - _EnableNormalMap: 0
     - _FalloffPower: 0.3
-    - _HighLightIntensity: 2.01
+    - _HighLightIntensity: 0
     - _IsToon: 0
     - _RenderMode: 0
     - _RimLightIntensity: 1

@@ -34,11 +34,11 @@ Material:
     m_Floats:
     - _EdgeThickness: 0.5
     - _FalloffPower: 1
-    - _HighLightIntensity: 4
-    - _RimLightIntensity: 0.539
+    - _HighLightIntensity: 1
+    - _RimLightIntensity: 1
     - _RimLightMultiplier: 1
     - _ShadingSteps: 2
-    - _TextureColorModifier: 1.329
+    - _TextureColorModifier: 2
     - _Toon: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
