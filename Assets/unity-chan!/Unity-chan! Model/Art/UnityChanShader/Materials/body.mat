@@ -46,7 +46,7 @@ Material:
     m_Floats:
     - _EdgeThickness: 0.5
     - _FalloffPower: 0.3
-    - _HighLightIntensity: 0.85
+    - _HighLightIntensity: 3
     - _IsToon: 1
     - _RimLightIntensity: 0.5
     - _SpecularPower: 20

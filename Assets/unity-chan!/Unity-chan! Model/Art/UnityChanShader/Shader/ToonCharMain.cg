@@ -1,4 +1,6 @@
 // Character shader
+// Upgrade NOTE: excluded shader from DX11, OpenGL ES 2.0 because it uses unsized arrays
+#pragma exclude_renderers d3d11 gles
 // Includes falloff shadow and specular, reflection, and normal mapping
 
 #define ENABLE_CAST_SHADOWS
@@ -128,11 +130,20 @@ inline float3_t GetNormalFromMap( v2f input )
 // Fragment shader
 float4 frag( v2f i ) : COLOR
 {
-	float4_t diffSamplerColor = tex2D( _MainTex, i.uv.xy );
+    float4_t diffSamplerColor = tex2D( _MainTex, i.uv.xy);
 
-    float4_t textureColor = diffSamplerColor + clamp(diffSamplerColor / diffSamplerColor.r  * (1-diffSamplerColor.z),0,1);
+    float4_t largeValue = diffSamplerColor.r > diffSamplerColor.g ? diffSamplerColor.r : diffSamplerColor.g;
+    largeValue = largeValue > diffSamplerColor.b ? largeValue : diffSamplerColor.b;
+    largeValue = largeValue > diffSamplerColor.z ? largeValue : diffSamplerColor.z;
     
-    textureColor = clamp(textureColor/ _TextureColorModifier, 0, 1);
+    float4_t textureColor = (diffSamplerColor + clamp((diffSamplerColor / diffSamplerColor.r + diffSamplerColor / diffSamplerColor.g)/2,0,1) * (1 - diffSamplerColor).z);
+    
+    //float4_t textureColor = diffSamplerColor + clamp(diffSamplerColor / diffSamplerColor.r  * (1-diffSamplerColor.z),0,1);
+    //textureColor = clamp(textureColor/ _TextureColorModifier, 0, 1);
+    
+    float4_t cleanColor = textureColor * clamp((largeValue + (1 - diffSamplerColor.z) * largeValue)/2,0,1);
+    
+    textureColor = cleanColor;
     
 #ifdef ENABLE_NORMAL_MAP
 	float3_t normalVec = GetNormalFromMap( i );

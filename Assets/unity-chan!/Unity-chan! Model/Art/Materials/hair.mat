@@ -47,10 +47,10 @@ Material:
     - _EdgeThickness: 0
     - _FalloffPower: 0.5
     - _HighIntensity: 1.32
-    - _HighLightIntensity: 2.11
-    - _RimLightIntensity: 0.606
+    - _HighLightIntensity: 0
+    - _RimLightIntensity: 1
     - _SpecularPower: 20
-    - _TextureColorModifier: 1.462
+    - _TextureColorModifier: 1.244
     - _Toon: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

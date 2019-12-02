@@ -21,6 +21,7 @@ public class MouseTrackingEye : MonoBehaviour
 
         foreach (var material in materials)
         {
+            /*
             var _x = (mousePos.x - Screen.width/2)/Screen.width;
             var _y = (mousePos.y - Screen.height/2)/Screen.height;
 
@@ -29,6 +30,8 @@ public class MouseTrackingEye : MonoBehaviour
                 material.SetVector("_MousePosition",shaderVector.normalized * range);
             else
                 material.SetVector("_MousePosition",shaderVector);
+                */
+            material.SetVector("_MousePosition",mousePos);
         }
     }
 }
