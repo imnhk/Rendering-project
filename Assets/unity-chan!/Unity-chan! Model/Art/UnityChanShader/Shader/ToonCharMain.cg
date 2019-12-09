@@ -139,7 +139,7 @@ float4 frag( v2f i ) : COLOR
     
     float4_t cleanColor = textureColor * (largeValue + (1 - diffSamplerColor.z) * largeValue)/2;
     
-    textureColor = cleanColor;
+    textureColor = cleanColor * float4_t(1.5,1,1,1);
     
 #ifdef ENABLE_NORMAL_MAP
 	float3_t normalVec = GetNormalFromMap( i );
@@ -152,12 +152,24 @@ float4 frag( v2f i ) : COLOR
 	float_t falloffU = clamp( 1.0 - abs( normalDotEye ), 0.02, 0.98 );
 
 	// Rimlight
-	float_t rimlightDot = saturate( _RimLightIntensity * ( dot( normalVec, i.lightDir ) + 1.0 ) );
+	
+	float4_t Lambert = dot(normalVec,i.lightDir);
+	float4_t halfLambert = Lambert / 2 + 0.5;
+	
+	float4_t spColor = tex2D(_SpecularReflectionSampler, i.uv);
+	float4_t spLambert = dot(spColor,i.lightDir);
+	
+	float_t rimlightDot = saturate( _RimLightIntensity * (halfLambert + 0.5));
 	falloffU = saturate( rimlightDot * falloffU );
-	falloffU = tex2D( _RimLightSampler, float2( falloffU, 0.25f ) ).r;
+	falloffU = tex2D( _RimLightSampler, float2( falloffU, 0.25f )).r;
 	float3_t lightColor = textureColor.rgb * falloffU;
 
-    float4_t stairLight = clamp(round(rimlightDot * 2)/2, 0.5, 1);
+    float4_t stairLight = clamp(floor(rimlightDot * 2)/2,0.6,1);
+    
+    if(halfLambert.z < spLambert.z){
+        stairLight *= 0.25;
+    }
+    
     float4_t highLight = clamp(floor(float4_t(lightColor,1).z * _HighLightIntensity), 0, 1);
 
     return textureColor * stairLight + highLight;

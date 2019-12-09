@@ -37,7 +37,7 @@ Material:
     - _HighLightIntensity: 1
     - _RimLightIntensity: 1
     - _RimLightMultiplier: 0.5
-    - _ShadingSteps: 1
+    - _ShadingSteps: 3
     - _TextureColorModifier: 2
     - _Toon: 1
     m_Colors:
