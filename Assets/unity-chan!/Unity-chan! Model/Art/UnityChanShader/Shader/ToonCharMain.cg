@@ -135,11 +135,12 @@ float4 frag( v2f i ) : COLOR
     float4_t largeValue = diffSamplerColor.r > diffSamplerColor.g ? diffSamplerColor.r : diffSamplerColor.g;
     largeValue = largeValue > diffSamplerColor.b ? largeValue : diffSamplerColor.b;
     
-    float4_t textureColor = diffSamplerColor + clamp((diffSamplerColor / diffSamplerColor.r + diffSamplerColor / diffSamplerColor.g)/2,0,1) * (1 - diffSamplerColor.z);
+    float4_t medianValue = (diffSamplerColor.r + diffSamplerColor.g + diffSamplerColor.b) / 3;
     
+    float4_t textureColor = (diffSamplerColor + diffSamplerColor / medianValue * (1 - medianValue))/2;
     float4_t cleanColor = textureColor * (largeValue + (1 - diffSamplerColor.z) * largeValue)/2;
     
-    textureColor = cleanColor * float4_t(1.5,1,1,1);
+    textureColor = cleanColor * float4_t(1.2,1.1,1,1);
     
 #ifdef ENABLE_NORMAL_MAP
 	float3_t normalVec = GetNormalFromMap( i );
@@ -167,10 +168,9 @@ float4 frag( v2f i ) : COLOR
     float4_t stairLight = clamp(floor(rimlightDot * 2)/2,0.6,1);
     
     if(halfLambert.z < spLambert.z){
-        stairLight *= 0.25;
+        stairLight *= 0.5;
     }
     
     float4_t highLight = clamp(floor(float4_t(lightColor,1).z * _HighLightIntensity), 0, 1);
-
     return textureColor * stairLight + highLight;
 }
